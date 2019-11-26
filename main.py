@@ -3,13 +3,15 @@ import os
 from asiansister_praser import asiansister_praser
 from downloader import downloader
 from instagram_praser import instagram_praser
+from pixiv_praser import pixiv_praser
 if __name__ == '__main__':
 
     print("选择你要爬取的网站：")
     print("1.Asiansister")
     print("2.Instagram")
+    print("3.Pixiv")
     selected=False
-    selections=["1","2"]
+    selections=["1","2","3"]
     dl = downloader()
     if not os.path.exists("images/"):
         os.mkdir("images/")
@@ -46,6 +48,12 @@ if __name__ == '__main__':
         if not os.path.exists("ins/"):
             os.mkdir("ins/")
         dl.run(urls,title)
+    elif(selection=="3"):
+        pp=pixiv_praser()
+        if not os.path.exists("pixiv_r18/"):
+            os.mkdir("pixiv_r18/")
+        pp.get_images()
+
 
 
 
